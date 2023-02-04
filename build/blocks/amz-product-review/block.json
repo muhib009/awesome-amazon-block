@@ -1,0 +1,54 @@
+{
+  "apiVersion": 2,
+  "name": "aab/amz-product-review",
+  "version": "0.1.0",
+  "title": "Amz Product Review",
+  "category": "aab",
+  "description": "Amazon Product Review Block",
+  "supports": {
+    "html": false,
+    "anchor": true
+  },
+  "attributes": {
+    "content": {
+      "type": "string",
+      "default": "Hello World!"
+    },
+    "color": {
+      "type": "string",
+      "default": "#00ff00"
+    },
+    "reviewHeading": {
+      "type": "string",
+      "default": "WD 1TB Portable Harddisk Solid State Drive (SSD)"
+    },
+    "photo": {
+      "type": "object"
+    },
+    "featureList": {
+      "type": "array",
+      "default": [
+        {
+          "feature": "Feature One"
+        },
+        {
+          "feature": "Feature Two"
+        },
+        {
+          "feature": "Feature Three"
+        },
+        {
+          "feature": "Feature Four"
+        }
+      ]
+    },
+    "productRating": {
+      "type": "number",
+      "default": 4
+    }
+  },
+  "textdomain": "awesome-amazon-block",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}

@@ -1,0 +1,61 @@
+/*
+* Style Works for Editor Only
+*/
+
+.wp-block-aab-amz-product-review {
+	border: 2px solid #ccc;
+	padding: 20px;
+	.amazon-review-block {
+		display: grid;
+		grid-template-columns: 1fr 4fr;
+
+		.review-image {
+			height: auto;
+			width: auto;
+
+			& img {
+				height: 215px;
+				width: auto;
+				object-fit: cover;
+			}
+		}
+
+		.star-rating {
+			padding: 10px 0px;
+			font-size: 25px;
+			.react-rater-star.is-active {
+				color: #f4ce68;
+			}
+			.react-rater-star.is-active-half:before {
+				color: #f4ce68;
+			}
+		}
+
+		.review-text {
+			padding: 0px 15px;
+
+			.review-text h3 {
+				margin: 0px;
+			}
+
+			.product-features {
+				padding: 15px;
+			}
+		}
+	}
+}
+
+.new-feature-list {
+	margin: 10px 0px 40px 0px;
+	.new-feature-button {
+		float: right;
+		& button {
+			background: #007cba;
+			border: none;
+			padding: 7px 15px;
+			color: white;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+	}
+}

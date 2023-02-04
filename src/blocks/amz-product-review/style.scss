@@ -1,0 +1,35 @@
+/*
+* Style Works for both Editor and Frontend
+*/
+
+.wp-block-aab-amz-product-review {
+	border: 2px solid #ccc;
+	padding: 20px;
+	.amazon-review-block {
+		display: grid;
+		grid-template-columns: 1fr 4fr;
+
+		.review-image {
+			height: auto;
+			width: auto;
+
+			& img {
+				height: 215px;
+				width: auto;
+				object-fit: cover;
+			}
+		}
+
+		.review-text {
+			padding: 0px 15px;
+
+			& h3 {
+				margin: 0px;
+			}
+
+			.product-features {
+				padding: 15px;
+			}
+		}
+	}
+}
