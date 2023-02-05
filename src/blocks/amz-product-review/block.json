@@ -7,7 +7,8 @@
 	"description": "Amazon Product Review Block",
 	"supports": {
 		"html": false,
-		"anchor": true
+		"anchor": false,
+		"customClassName": false
 	},
 	"attributes": {
 		"content": {
@@ -45,6 +46,18 @@
 		"productRating": {
 			"type": "number",
 			"default": 4
+		},
+		"reviewRatingNumber": {
+			"type": "string",
+			"default": "43120 Reviews"
+		},
+		"productPrice": {
+			"type": "string",
+			"default": "$78.09"
+		},
+		"buttonLabel": {
+			"type": "string",
+			"default": "Buy on Amazon"
 		}
 	},
 	"textdomain": "awesome-amazon-block",

@@ -20,6 +20,12 @@
 			}
 		}
 
+		.star-rating {
+			padding: 10px 0px;
+			font-size: 25px;
+			color: #ff9900;
+		}
+
 		.review-text {
 			padding: 0px 15px;
 
@@ -29,6 +35,21 @@
 
 			.product-features {
 				padding: 15px;
+			}
+		}
+
+		.aab-pricing-section {
+			justify-items: end;
+			display: grid;
+			.abb-product-price {
+				padding: 10px 0px;
+				font-weight: 700;
+			}
+			.abb-price-button .amazon-button {
+				background: #f8c64d;
+				padding: 15px;
+				border-radius: 5px;
+				border: 2px solid #c88f06;
 			}
 		}
 	}

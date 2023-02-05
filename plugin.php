@@ -106,7 +106,10 @@ final class AAB_BLOCKS_CLASS {
 	 */
 	public function aab_external_libraries() {
 		// enqueue JS
-		wp_enqueue_script( 'aab-lib', AAB_INC_URL . 'js/plugin.js', array(), AAB_VERSION, true );
+		if(!is_admin() && has_block('aab/amz-product-review')){
+			wp_enqueue_script( 'aab-main', AAB_INC_URL . 'js/plugin.js', array('jquery','aab-rater'), AAB_VERSION, true );
+			wp_enqueue_script( 'aab-rater', AAB_INC_URL . 'js/rater.min.js', array('jquery'), AAB_VERSION, true );
+		}
 	}
 
 }

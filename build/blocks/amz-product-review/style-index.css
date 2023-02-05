@@ -22,6 +22,11 @@
   -o-object-fit: cover;
      object-fit: cover;
 }
+.wp-block-aab-amz-product-review .amazon-review-block .star-rating {
+  padding: 10px 0px;
+  font-size: 25px;
+  color: #ff9900;
+}
 .wp-block-aab-amz-product-review .amazon-review-block .review-text {
   padding: 0px 15px;
 }
@@ -30,6 +35,20 @@
 }
 .wp-block-aab-amz-product-review .amazon-review-block .review-text .product-features {
   padding: 15px;
+}
+.wp-block-aab-amz-product-review .amazon-review-block .aab-pricing-section {
+  justify-items: end;
+  display: grid;
+}
+.wp-block-aab-amz-product-review .amazon-review-block .aab-pricing-section .abb-product-price {
+  padding: 10px 0px;
+  font-weight: 700;
+}
+.wp-block-aab-amz-product-review .amazon-review-block .aab-pricing-section .abb-price-button .amazon-button {
+  background: #f8c64d;
+  padding: 15px;
+  border-radius: 5px;
+  border: 2px solid #c88f06;
 }
 
 /*# sourceMappingURL=style-index.css.map*/

@@ -24,10 +24,10 @@
 			padding: 10px 0px;
 			font-size: 25px;
 			.react-rater-star.is-active {
-				color: #f4ce68;
+				color: #ff9900;
 			}
 			.react-rater-star.is-active-half:before {
-				color: #f4ce68;
+				color: #ff9900;
 			}
 		}
 
@@ -42,20 +42,62 @@
 				padding: 15px;
 			}
 		}
+
+		.aab-pricing-section {
+			justify-items: end;
+			display: grid;
+			.abb-product-price {
+				padding: 10px 0px;
+				font-weight: 700;
+			}
+			.abb-price-button .amazon-button {
+				background: #f8c64d;
+				padding: 15px;
+				border-radius: 5px;
+				border: 2px solid #c88f06;
+			}
+		}
 	}
 }
 
-.new-feature-list {
-	margin: 10px 0px 40px 0px;
-	.new-feature-button {
-		float: right;
-		& button {
-			background: #007cba;
-			border: none;
-			padding: 7px 15px;
-			color: white;
-			border-radius: 5px;
-			cursor: pointer;
+.my-tab-panel {
+	border-top: 1px solid #ccc;
+
+	.components-tab-panel__tabs-item:focus:not(:disabled) {
+		box-shadow: none;
+	}
+
+	.components-panel__body-toggle.components-button:focus {
+		box-shadow: none;
+	}
+
+	.components-button:focus:not(:disabled) {
+		box-shadow: none;
+	}
+
+	.aab-general {
+		display: block;
+		width: 100%;
+	}
+
+	.aab-general.active-tab {
+		background: #ff99009e;
+		color: #29434a;
+		border-top: 3px solid #ff9900;
+	}
+
+	.new-feature-list {
+		margin: 10px 0px 40px 0px;
+		.new-feature-button {
+			float: right;
+			& button {
+				background: #007cba;
+				border: none;
+				padding: 7px 15px;
+				color: white;
+				border-radius: 5px;
+				cursor: pointer;
+			}
 		}
 	}
 }

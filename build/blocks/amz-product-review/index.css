@@ -54,10 +54,10 @@
   font-size: 25px;
 }
 .wp-block-aab-amz-product-review .amazon-review-block .star-rating .react-rater-star.is-active {
-  color: #f4ce68;
+  color: #ff9900;
 }
 .wp-block-aab-amz-product-review .amazon-review-block .star-rating .react-rater-star.is-active-half:before {
-  color: #f4ce68;
+  color: #ff9900;
 }
 .wp-block-aab-amz-product-review .amazon-review-block .review-text {
   padding: 0px 15px;
@@ -68,14 +68,49 @@
 .wp-block-aab-amz-product-review .amazon-review-block .review-text .product-features {
   padding: 15px;
 }
+.wp-block-aab-amz-product-review .amazon-review-block .aab-pricing-section {
+  justify-items: end;
+  display: grid;
+}
+.wp-block-aab-amz-product-review .amazon-review-block .aab-pricing-section .abb-product-price {
+  padding: 10px 0px;
+  font-weight: 700;
+}
+.wp-block-aab-amz-product-review .amazon-review-block .aab-pricing-section .abb-price-button .amazon-button {
+  background: #f8c64d;
+  padding: 15px;
+  border-radius: 5px;
+  border: 2px solid #c88f06;
+}
 
-.new-feature-list {
+.my-tab-panel {
+  border-top: 1px solid #ccc;
+}
+.my-tab-panel .components-tab-panel__tabs-item:focus:not(:disabled) {
+  box-shadow: none;
+}
+.my-tab-panel .components-panel__body-toggle.components-button:focus {
+  box-shadow: none;
+}
+.my-tab-panel .components-button:focus:not(:disabled) {
+  box-shadow: none;
+}
+.my-tab-panel .aab-general {
+  display: block;
+  width: 100%;
+}
+.my-tab-panel .aab-general.active-tab {
+  background: #ff99009e;
+  color: #29434a;
+  border-top: 3px solid #ff9900;
+}
+.my-tab-panel .new-feature-list {
   margin: 10px 0px 40px 0px;
 }
-.new-feature-list .new-feature-button {
+.my-tab-panel .new-feature-list .new-feature-button {
   float: right;
 }
-.new-feature-list .new-feature-button button {
+.my-tab-panel .new-feature-list .new-feature-button button {
   background: #007cba;
   border: none;
   padding: 7px 15px;
