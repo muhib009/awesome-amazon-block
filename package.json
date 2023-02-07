@@ -41,6 +41,7 @@
 	"dependencies": {
 		"install": "^0.13.0",
 		"rater-js": "^1.0.1",
-		"react-rater": "^6.0.5"
+		"react-rater": "^6.0.5",
+		"styled-components": "^5.3.6"
 	}
 }

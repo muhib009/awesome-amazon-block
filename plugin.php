@@ -77,14 +77,39 @@ final class AAB_BLOCKS_CLASS {
 		register_block_type( __DIR__ . '/build/blocks/' . $name, $options );
 	 }
 
+	// Register Inline styles
+
+	public function amz_add_inline_style($handle, $css){
+
+	wp_register_style($handle, false);
+	wp_enqueue_style($handle);
+	wp_add_inline_style($handle, $css);
+
+	}
+
 	/**
 	 * Blocks Initialization
 	*/
 	public function aab_blocks_init() {
 		// register single block
-		$this->aab_register_block( 'amz-product-review' );
+		$this->aab_register_block( 'amz-product-review',[
+			"render_callback" => [$this, "amz_render_callback"]
+		] );
 	}
 
+	/**
+	 * Amz Render Callback
+	*/
+
+	public function amz_render_callback($attributes, $content){
+		require_once __DIR__  . '/templates/amz/amz.php';		
+		$id = $attributes['id'];
+		$this->amz_add_inline_style(
+			$id,
+			amz_frontend_styles($attributes )
+		);
+		return $content;
+	}
 	/**
 	 * Register Block Category
 	 */

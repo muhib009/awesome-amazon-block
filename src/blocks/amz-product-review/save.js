@@ -3,6 +3,7 @@ import { useBlockProps, RichText } from '@wordpress/block-editor';
 
 export default function save({ attributes }) {
 	const {
+		id,
 		photo,
 		reviewHeading,
 		featureList,
@@ -12,7 +13,11 @@ export default function save({ attributes }) {
 		productPrice,
 	} = attributes;
 	return (
-		<div {...useBlockProps.save()}>
+		<div
+			{...useBlockProps.save({
+				className: id,
+			})}
+		>
 			<div className="amazon-review-block">
 				<div className="review-image">
 					{photo && (

@@ -11,9 +11,23 @@
     "customClassName": false
   },
   "attributes": {
-    "content": {
-      "type": "string",
-      "default": "Hello World!"
+    "id": {
+      "type": "string"
+    },
+    "containerBg": {
+      "type": "string"
+    },
+    "containerBorder": {
+      "type": "object",
+      "default": {
+        "color": "#72aee6",
+        "style": "solid",
+        "width": "2px"
+      }
+    },
+    "containerBorderRadius": {
+      "type": "number",
+      "default": 0
     },
     "color": {
       "type": "string",
@@ -58,6 +72,46 @@
     "buttonLabel": {
       "type": "string",
       "default": "Buy on Amazon"
+    },
+    "imageHeight": {
+      "type": "number"
+    },
+    "imageWidth": {
+      "type": "number"
+    },
+    "starRatingColor": {
+      "type": "string",
+      "default": "#ff9900"
+    },
+    "ReviewTextFontSize": {
+      "type": "number"
+    },
+    "reviewTextColor": {
+      "type": "string"
+    },
+    "headingFontSize": {
+      "type": "number"
+    },
+    "headingFontColor": {
+      "type": "string"
+    },
+    "pricingFontSize": {
+      "type": "number"
+    },
+    "pricingColor": {
+      "type": "string"
+    },
+    "buttonUrl": {
+      "type": "string"
+    },
+    "buttonBackground": {
+      "type": "string"
+    },
+    "buttonFontColor": {
+      "type": "string"
+    },
+    "buttonFontSize": {
+      "type": "number"
     }
   },
   "textdomain": "awesome-amazon-block",

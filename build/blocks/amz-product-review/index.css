@@ -77,14 +77,21 @@
   font-weight: 700;
 }
 .wp-block-aab-amz-product-review .amazon-review-block .aab-pricing-section .abb-price-button .amazon-button {
-  background: #f8c64d;
-  padding: 15px;
+  padding: 10px;
   border-radius: 5px;
-  border: 2px solid #c88f06;
+  border: 2px solid #7c5803;
+  background-image: linear-gradient(262deg, #ffac30 0%, #ffc400 100%);
+}
+.wp-block-aab-amz-product-review .amazon-review-block p.block-editor-rich-text__editable.rich-text {
+  margin: 0px;
 }
 
 .my-tab-panel {
   border-top: 1px solid #ccc;
+}
+.my-tab-panel .scb-heading {
+  margin-bottom: 16px;
+  font-weight: 500;
 }
 .my-tab-panel .components-tab-panel__tabs-item:focus:not(:disabled) {
   box-shadow: none;
@@ -99,6 +106,9 @@
   display: block;
   width: 100%;
 }
+.my-tab-panel .aab-gap {
+  margin-top: 20px;
+}
 .my-tab-panel .aab-general.active-tab {
   background: #ff99009e;
   color: #29434a;
@@ -109,6 +119,7 @@
 }
 .my-tab-panel .new-feature-list .new-feature-button {
   float: right;
+  margin: 10px;
 }
 .my-tab-panel .new-feature-list .new-feature-button button {
   background: #007cba;
@@ -116,6 +127,49 @@
   padding: 7px 15px;
   color: white;
   border-radius: 5px;
+  cursor: pointer;
+}
+.my-tab-panel .new-feature-list .all-features {
+  display: grid;
+  grid-template-columns: 5fr 1fr;
+}
+.my-tab-panel .new-feature-list .all-features .feature-remove {
+  width: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.my-tab-panel .new-feature-list .all-features .feature-remove svg {
+  fill: #aa1212;
+  margin-top: -5px;
+  height: 40px;
+}
+/*!********************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/utilities/components/colorcontrol/colorcontrol.scss ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************/
+.agb-color-wrapper .color-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  padding: 0;
+}
+.agb-color-wrapper .color-header .scb-label {
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 500;
+  padding-bottom: 16px;
+}
+.agb-color-wrapper button.color-indicator {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+button.scb-clear-button {
+  background: red;
+  padding: 5px 19px;
+  border: 0;
+  margin: 0px 0px 15px 15px;
   cursor: pointer;
 }
 
