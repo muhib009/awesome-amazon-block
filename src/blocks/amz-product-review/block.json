@@ -40,6 +40,14 @@
 		"photo": {
 			"type": "object"
 		},
+		"photoBorder": {
+			"type": "object",
+			"default": {
+				"color": "#ccc",
+				"style": "solid",
+				"width": "2px"
+			}
+		},
 		"featureList": {
 			"type": "array",
 			"default": [
@@ -74,10 +82,12 @@
 			"default": "Buy on Amazon"
 		},
 		"imageHeight": {
-			"type": "number"
+			"type": "number",
+			"default": 215
 		},
 		"imageWidth": {
-			"type": "number"
+			"type": "number",
+			"default": 170
 		},
 		"starRatingColor": {
 			"type": "string",
@@ -87,19 +97,32 @@
 			"type": "number"
 		},
 		"reviewTextColor": {
-			"type": "string"
+			"type": "string",
+			"default": "#333333"
 		},
 		"headingFontSize": {
-			"type": "number"
+			"type": "number",
+			"default": 20
 		},
 		"headingFontColor": {
-			"type": "string"
+			"type": "string",
+			"default": "#256AAF"
 		},
 		"pricingFontSize": {
-			"type": "number"
+			"type": "number",
+			"default": 16
 		},
 		"pricingColor": {
-			"type": "string"
+			"type": "string",
+			"default": "#333333"
+		},
+		"featuresFontSize": {
+			"type": "number",
+			"default": 14
+		},
+		"featuresColor": {
+			"type": "string",
+			"default": "#333333"
 		},
 		"buttonUrl": {
 			"type": "string"
@@ -112,6 +135,14 @@
 		},
 		"buttonFontSize": {
 			"type": "number"
+		},
+		"buttonBorder": {
+			"type": "object",
+			"default": {
+				"color": "#ccc",
+				"style": "solid",
+				"width": "2px"
+			}
 		}
 	},
 	"textdomain": "awesome-amazon-block",

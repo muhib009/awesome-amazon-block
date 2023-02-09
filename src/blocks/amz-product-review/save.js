@@ -10,6 +10,7 @@ export default function save({ attributes }) {
 		reviewRatingNumber,
 		productRating,
 		buttonLabel,
+		buttonUrl,
 		productPrice,
 	} = attributes;
 	return (
@@ -60,11 +61,12 @@ export default function save({ attributes }) {
 							<RichText.Content value={productPrice} />
 						</div>
 						<div className="abb-price-button">
-							<RichText.Content
-								tagName="div"
-								className="amazon-button"
-								value={buttonLabel}
-							/>
+							{buttonUrl && buttonLabel && (
+								<a href={buttonUrl} className="amazon-button">
+									<RichText.Content value={buttonLabel} />
+								</a>
+							)}
+							
 						</div>
 					</div>
 				</div>

@@ -36,6 +36,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 		containerBorderRadius,
 		reviewHeading,
 		photo,
+		photoBorder,
 		featureList,
 		productRating,
 		reviewRatingNumber,
@@ -47,6 +48,8 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 		ReviewTextFontSize,
 		reviewTextColor,
 		headingFontColor,
+		featuresColor,
+		featuresFontSize,
 		headingFontSize,
 		pricingFontSize,
 		pricingColor,
@@ -54,6 +57,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 		buttonBackground,
 		buttonFontColor,
 		buttonFontSize,
+		buttonBorder,
 	} = attributes;
 
 	setAttributes({
@@ -163,27 +167,46 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 										<RangeControl
 											label="Image Height"
 											value={imageHeight}
-											onChange={(rating) =>
+											onChange={(value) =>
 												setAttributes({
-													imageHeight: rating,
+													imageHeight: value,
 												})
 											}
 											min={0}
 											max={300}
 											step={1}
+											allowReset={true}
+											resetFallbackValue={215}
 										/>
 
 										<RangeControl
 											label="Image Width"
 											value={imageWidth}
-											onChange={(rating) =>
+											onChange={(value) =>
 												setAttributes({
-													imageWidth: rating,
+													imageWidth: value,
 												})
 											}
 											min={0}
 											max={300}
 											step={1}
+											allowReset={true}
+											resetFallbackValue={170}
+										/>
+
+										<BorderControl
+											label={__(
+												'Image Border',
+												'awesome-amazon-block'
+											)}
+											onChange={(value) =>
+												setAttributes({
+													photoBorder: value,
+												})
+											}
+											value={photoBorder}
+											unit={false}
+											withSlider={true}
 										/>
 									</PanelBody>
 									<PanelBody
@@ -373,6 +396,29 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 												</button>
 											</div>
 										</div>
+
+										<div className="agb-label-spacing"></div>
+										<ColorControl
+											label={__(
+												'Features Font Color',
+												'awesome-amazon-block'
+											)}
+											colorValue={featuresColor}
+											colorName="featuresColor"
+											setAttributes={setAttributes}
+										/>
+										<RangeControl
+											label="Features Font Size"
+											value={featuresFontSize}
+											onChange={(value) =>
+												setAttributes({
+													featuresFontSize: value,
+												})
+											}
+											min={1}
+											max={100}
+											step={1}
+										/>
 									</PanelBody>
 									<PanelBody
 										title="Pricing Settings"
@@ -437,8 +483,23 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 											colorName="buttonFontColor"
 											setAttributes={setAttributes}
 										/>
+										<BorderControl
+											label={__(
+												'Button Border',
+												'awesome-amazon-block'
+											)}
+											onChange={(value) =>
+												setAttributes({
+													buttonBorder: value,
+												})
+											}
+											value={buttonBorder}
+											unit={false}
+											withSlider={true}
+										/>
 										<RangeControl
 											label="Button Font Size"
+											className="aab-gap"
 											value={buttonFontSize}
 											onChange={(value) =>
 												setAttributes({
@@ -458,20 +519,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 									<PanelBody
 										title="Rating"
 										initialOpen={false}
-									>
-										<RangeControl
-											label="Total Rating"
-											value={productRating}
-											onChange={(rating) =>
-												setAttributes({
-													productRating: rating,
-												})
-											}
-											min={1}
-											max={5}
-											step={0.5}
-										/>
-									</PanelBody>
+									></PanelBody>
 								</div>
 							);
 						}
@@ -486,6 +534,19 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 				containerBorderRadius={containerBorderRadius}
 				imageHeight={imageHeight}
 				imageWidth={imageWidth}
+				photoBorder={photoBorder}
+				starRatingColor={starRatingColor}
+				reviewTextColor={reviewTextColor}
+				headingFontColor={headingFontColor}
+				headingFontSize={headingFontSize}
+				featuresColor={featuresColor}
+				featuresFontSize={featuresFontSize}
+				pricingColor={pricingColor}
+				pricingFontSize={pricingFontSize}
+				buttonFontSize={buttonFontSize}
+				buttonFontColor={buttonFontColor}
+				buttonBackground={buttonBackground}
+				buttonBorder={buttonBorder}
 			>
 				<div className="amazon-review-block">
 					<div className="review-image">

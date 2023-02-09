@@ -23,6 +23,7 @@ const ColorControl = ({ label, colorName, colorValue, setAttributes }) => {
 					<div className="color-picker">
 						<ColorPicker
 							color={colorName}
+							defaultValue={colorName}
 							onChangeComplete={(value) =>
 								setAttributes({ [colorName]: value.hex })
 							}

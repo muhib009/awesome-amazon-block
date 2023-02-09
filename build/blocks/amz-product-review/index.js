@@ -759,6 +759,41 @@ const AmzStyles = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div`
 	.review-image img {
 		height: ${props => props.imageHeight}px!important;
 		width: ${props => props.imageWidth}px!important;
+		${props => `border: ${props.photoBorder.width} ${props.photoBorder.style} ${props.photoBorder.color};`}
+	}
+
+	.star-rating .react-rater-star.is-active {
+		color: ${props => props.starRatingColor};
+	}
+
+	.react-rater-star.is-active-half:before {
+		color: ${props => props.starRatingColor};
+	}
+
+	.rating-count p {
+		color: ${props => props.reviewTextColor};
+	}
+
+	.review-text h3 {
+		color: ${props => props.headingFontColor};
+		font-size: ${props => props.headingFontSize}px;
+	}
+
+	.product-features li {
+		color: ${props => props.featuresColor};
+		font-size: ${props => props.featuresFontSize}px;
+	}
+
+	.abb-product-price {
+		color: ${props => props.pricingColor};
+		font-size: ${props => props.pricingFontSize}px;
+	}
+
+	.amazon-button {
+		background: ${props => props.buttonBackground}!important;
+		color: ${props => props.buttonFontColor};
+		font-size: ${props => props.buttonFontSize}px;
+		${props => `border: ${props.buttonBorder.width} ${props.buttonBorder.style} ${props.buttonBorder.color}!important;`}
 	}
 `;
 /* harmony default export */ __webpack_exports__["default"] = (AmzStyles);
@@ -817,6 +852,7 @@ function Edit(_ref) {
     containerBorderRadius,
     reviewHeading,
     photo,
+    photoBorder,
     featureList,
     productRating,
     reviewRatingNumber,
@@ -828,13 +864,16 @@ function Edit(_ref) {
     ReviewTextFontSize,
     reviewTextColor,
     headingFontColor,
+    featuresColor,
+    featuresFontSize,
     headingFontSize,
     pricingFontSize,
     pricingColor,
     buttonUrl,
     buttonBackground,
     buttonFontColor,
-    buttonFontSize
+    buttonFontSize,
+    buttonBorder
   } = attributes;
   setAttributes({
     id: 'amz-' + clientId.slice(0, 8)
@@ -905,21 +944,33 @@ function Edit(_ref) {
       }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Image Size', 'simple-card-block')), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.RangeControl, {
         label: "Image Height",
         value: imageHeight,
-        onChange: rating => setAttributes({
-          imageHeight: rating
+        onChange: value => setAttributes({
+          imageHeight: value
         }),
         min: 0,
         max: 300,
-        step: 1
+        step: 1,
+        allowReset: true,
+        resetFallbackValue: 215
       }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.RangeControl, {
         label: "Image Width",
         value: imageWidth,
-        onChange: rating => setAttributes({
-          imageWidth: rating
+        onChange: value => setAttributes({
+          imageWidth: value
         }),
         min: 0,
         max: 300,
-        step: 1
+        step: 1,
+        allowReset: true,
+        resetFallbackValue: 170
+      }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.__experimentalBorderControl, {
+        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Image Border', 'awesome-amazon-block'),
+        onChange: value => setAttributes({
+          photoBorder: value
+        }),
+        value: photoBorder,
+        unit: false,
+        withSlider: true
       })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, {
         title: "Rating Settings",
         initialOpen: false
@@ -1017,7 +1068,23 @@ function Edit(_ref) {
             feature: 'Lorem Ipsum Feature'
           }]
         })
-      }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Add A Feature', 'awesome-amazon-block'))))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, {
+      }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Add A Feature', 'awesome-amazon-block')))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
+        className: "agb-label-spacing"
+      }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_utilities_components_colorcontrol_colorcontrol__WEBPACK_IMPORTED_MODULE_9__["default"], {
+        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Features Font Color', 'awesome-amazon-block'),
+        colorValue: featuresColor,
+        colorName: "featuresColor",
+        setAttributes: setAttributes
+      }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.RangeControl, {
+        label: "Features Font Size",
+        value: featuresFontSize,
+        onChange: value => setAttributes({
+          featuresFontSize: value
+        }),
+        min: 1,
+        max: 100,
+        step: 1
+      })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, {
         title: "Pricing Settings",
         initialOpen: false
       }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_utilities_components_colorcontrol_colorcontrol__WEBPACK_IMPORTED_MODULE_9__["default"], {
@@ -1055,8 +1122,17 @@ function Edit(_ref) {
         colorValue: buttonFontColor,
         colorName: "buttonFontColor",
         setAttributes: setAttributes
+      }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.__experimentalBorderControl, {
+        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Button Border', 'awesome-amazon-block'),
+        onChange: value => setAttributes({
+          buttonBorder: value
+        }),
+        value: buttonBorder,
+        unit: false,
+        withSlider: true
       }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.RangeControl, {
         label: "Button Font Size",
+        className: "aab-gap",
         value: buttonFontSize,
         onChange: value => setAttributes({
           buttonFontSize: value
@@ -1069,23 +1145,27 @@ function Edit(_ref) {
       return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, {
         title: "Rating",
         initialOpen: false
-      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.RangeControl, {
-        label: "Total Rating",
-        value: productRating,
-        onChange: rating => setAttributes({
-          productRating: rating
-        }),
-        min: 1,
-        max: 5,
-        step: 0.5
-      })));
+      }));
     }
   })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_amz_styled__WEBPACK_IMPORTED_MODULE_7__["default"], (0,_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.useBlockProps)(), {
     containerBg: containerBg,
     containerBorder: containerBorder,
     containerBorderRadius: containerBorderRadius,
     imageHeight: imageHeight,
-    imageWidth: imageWidth
+    imageWidth: imageWidth,
+    photoBorder: photoBorder,
+    starRatingColor: starRatingColor,
+    reviewTextColor: reviewTextColor,
+    headingFontColor: headingFontColor,
+    headingFontSize: headingFontSize,
+    featuresColor: featuresColor,
+    featuresFontSize: featuresFontSize,
+    pricingColor: pricingColor,
+    pricingFontSize: pricingFontSize,
+    buttonFontSize: buttonFontSize,
+    buttonFontColor: buttonFontColor,
+    buttonBackground: buttonBackground,
+    buttonBorder: buttonBorder
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
     className: "amazon-review-block"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
@@ -1240,6 +1320,7 @@ function save(_ref) {
     reviewRatingNumber,
     productRating,
     buttonLabel,
+    buttonUrl,
     productPrice
   } = attributes;
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save({
@@ -1280,11 +1361,12 @@ function save(_ref) {
     value: productPrice
   })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "abb-price-button"
+  }, buttonUrl && buttonLabel && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+    href: buttonUrl,
+    className: "amazon-button"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText.Content, {
-    tagName: "div",
-    className: "amazon-button",
     value: buttonLabel
-  }))))));
+  })))))));
 }
 
 /***/ }),
@@ -1336,6 +1418,7 @@ const ColorControl = _ref => {
     className: "color-picker"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.ColorPicker, {
     color: colorName,
+    defaultValue: colorName,
     onChangeComplete: value => setAttributes({
       [colorName]: value.hex
     }),
@@ -3565,7 +3648,7 @@ function _extends() {
 /***/ (function(module) {
 
 "use strict";
-module.exports = JSON.parse('{"apiVersion":2,"name":"aab/amz-product-review","version":"0.1.0","title":"Amz Product Review","category":"aab","description":"Amazon Product Review Block","supports":{"html":false,"anchor":false,"customClassName":false},"attributes":{"id":{"type":"string"},"containerBg":{"type":"string"},"containerBorder":{"type":"object","default":{"color":"#72aee6","style":"solid","width":"2px"}},"containerBorderRadius":{"type":"number","default":0},"color":{"type":"string","default":"#00ff00"},"reviewHeading":{"type":"string","default":"WD 1TB Portable Harddisk Solid State Drive (SSD)"},"photo":{"type":"object"},"featureList":{"type":"array","default":[{"feature":"Feature One"},{"feature":"Feature Two"},{"feature":"Feature Three"},{"feature":"Feature Four"}]},"productRating":{"type":"number","default":4},"reviewRatingNumber":{"type":"string","default":"43120 Reviews"},"productPrice":{"type":"string","default":"$78.09"},"buttonLabel":{"type":"string","default":"Buy on Amazon"},"imageHeight":{"type":"number"},"imageWidth":{"type":"number"},"starRatingColor":{"type":"string","default":"#ff9900"},"ReviewTextFontSize":{"type":"number"},"reviewTextColor":{"type":"string"},"headingFontSize":{"type":"number"},"headingFontColor":{"type":"string"},"pricingFontSize":{"type":"number"},"pricingColor":{"type":"string"},"buttonUrl":{"type":"string"},"buttonBackground":{"type":"string"},"buttonFontColor":{"type":"string"},"buttonFontSize":{"type":"number"}},"textdomain":"awesome-amazon-block","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
+module.exports = JSON.parse('{"apiVersion":2,"name":"aab/amz-product-review","version":"0.1.0","title":"Amz Product Review","category":"aab","description":"Amazon Product Review Block","supports":{"html":false,"anchor":false,"customClassName":false},"attributes":{"id":{"type":"string"},"containerBg":{"type":"string"},"containerBorder":{"type":"object","default":{"color":"#72aee6","style":"solid","width":"2px"}},"containerBorderRadius":{"type":"number","default":0},"color":{"type":"string","default":"#00ff00"},"reviewHeading":{"type":"string","default":"WD 1TB Portable Harddisk Solid State Drive (SSD)"},"photo":{"type":"object"},"photoBorder":{"type":"object","default":{"color":"#ccc","style":"solid","width":"2px"}},"featureList":{"type":"array","default":[{"feature":"Feature One"},{"feature":"Feature Two"},{"feature":"Feature Three"},{"feature":"Feature Four"}]},"productRating":{"type":"number","default":4},"reviewRatingNumber":{"type":"string","default":"43120 Reviews"},"productPrice":{"type":"string","default":"$78.09"},"buttonLabel":{"type":"string","default":"Buy on Amazon"},"imageHeight":{"type":"number","default":215},"imageWidth":{"type":"number","default":170},"starRatingColor":{"type":"string","default":"#ff9900"},"ReviewTextFontSize":{"type":"number"},"reviewTextColor":{"type":"string","default":"#333333"},"headingFontSize":{"type":"number","default":20},"headingFontColor":{"type":"string","default":"#256AAF"},"pricingFontSize":{"type":"number","default":16},"pricingColor":{"type":"string","default":"#333333"},"featuresFontSize":{"type":"number","default":14},"featuresColor":{"type":"string","default":"#333333"},"buttonUrl":{"type":"string"},"buttonBackground":{"type":"string"},"buttonFontColor":{"type":"string"},"buttonFontSize":{"type":"number"},"buttonBorder":{"type":"object","default":{"color":"#ccc","style":"solid","width":"2px"}}},"textdomain":"awesome-amazon-block","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
 
 /***/ })
 

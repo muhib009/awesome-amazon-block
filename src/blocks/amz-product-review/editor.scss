@@ -23,12 +23,6 @@
 		.star-rating {
 			padding: 10px 0px;
 			font-size: 25px;
-			.react-rater-star.is-active {
-				color: #ff9900;
-			}
-			.react-rater-star.is-active-half:before {
-				color: #ff9900;
-			}
 		}
 
 		.review-text {
@@ -52,6 +46,7 @@
 			}
 			.abb-price-button .amazon-button {
 				padding: 10px;
+				cursor: pointer;
 				border-radius: 5px;
 				border: 2px solid #7c5803;
 				background-image: linear-gradient(
@@ -133,5 +128,9 @@
 				}
 			}
 		}
+	}
+
+	.agb-label-spacing {
+		margin-top: 70px;
 	}
 }
