@@ -58,6 +58,8 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 		buttonFontColor,
 		buttonFontSize,
 		buttonBorder,
+		buttonHoverBackground,
+		buttonHoverFontColor,
 	} = attributes;
 
 	setAttributes({
@@ -483,6 +485,24 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 											colorName="buttonFontColor"
 											setAttributes={setAttributes}
 										/>
+										<ColorControl
+											label={__(
+												'Button Background Hover Color',
+												'awesome-amazon-block'
+											)}
+											colorValue={buttonHoverBackground}
+											colorName="buttonHoverBackground"
+											setAttributes={setAttributes}
+										/>
+										<ColorControl
+											label={__(
+												'Button Hover Font Color',
+												'awesome-amazon-block'
+											)}
+											colorValue={buttonHoverFontColor}
+											colorName="buttonHoverFontColor"
+											setAttributes={setAttributes}
+										/>
 										<BorderControl
 											label={__(
 												'Button Border',
@@ -547,6 +567,8 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 				buttonFontColor={buttonFontColor}
 				buttonBackground={buttonBackground}
 				buttonBorder={buttonBorder}
+				buttonHoverFontColor={buttonHoverFontColor}
+				buttonHoverBackground={buttonHoverBackground}
 			>
 				<div className="amazon-review-block">
 					<div className="review-image">

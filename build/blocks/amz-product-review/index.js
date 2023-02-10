@@ -795,6 +795,11 @@ const AmzStyles = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div`
 		font-size: ${props => props.buttonFontSize}px;
 		${props => `border: ${props.buttonBorder.width} ${props.buttonBorder.style} ${props.buttonBorder.color}!important;`}
 	}
+
+	.amazon-button:hover {
+		background: ${props => props.buttonHoverBackground}!important;
+		color: ${props => props.buttonHoverFontColor}!important;
+	}
 `;
 /* harmony default export */ __webpack_exports__["default"] = (AmzStyles);
 
@@ -873,7 +878,9 @@ function Edit(_ref) {
     buttonBackground,
     buttonFontColor,
     buttonFontSize,
-    buttonBorder
+    buttonBorder,
+    buttonHoverBackground,
+    buttonHoverFontColor
   } = attributes;
   setAttributes({
     id: 'amz-' + clientId.slice(0, 8)
@@ -1122,6 +1129,16 @@ function Edit(_ref) {
         colorValue: buttonFontColor,
         colorName: "buttonFontColor",
         setAttributes: setAttributes
+      }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_utilities_components_colorcontrol_colorcontrol__WEBPACK_IMPORTED_MODULE_9__["default"], {
+        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Button Background Hover Color', 'awesome-amazon-block'),
+        colorValue: buttonHoverBackground,
+        colorName: "buttonHoverBackground",
+        setAttributes: setAttributes
+      }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_utilities_components_colorcontrol_colorcontrol__WEBPACK_IMPORTED_MODULE_9__["default"], {
+        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Button Hover Font Color', 'awesome-amazon-block'),
+        colorValue: buttonHoverFontColor,
+        colorName: "buttonHoverFontColor",
+        setAttributes: setAttributes
       }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.__experimentalBorderControl, {
         label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Button Border', 'awesome-amazon-block'),
         onChange: value => setAttributes({
@@ -1165,7 +1182,9 @@ function Edit(_ref) {
     buttonFontSize: buttonFontSize,
     buttonFontColor: buttonFontColor,
     buttonBackground: buttonBackground,
-    buttonBorder: buttonBorder
+    buttonBorder: buttonBorder,
+    buttonHoverFontColor: buttonHoverFontColor,
+    buttonHoverBackground: buttonHoverBackground
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
     className: "amazon-review-block"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
@@ -3648,7 +3667,7 @@ function _extends() {
 /***/ (function(module) {
 
 "use strict";
-module.exports = JSON.parse('{"apiVersion":2,"name":"aab/amz-product-review","version":"0.1.0","title":"Amz Product Review","category":"aab","description":"Amazon Product Review Block","supports":{"html":false,"anchor":false,"customClassName":false},"attributes":{"id":{"type":"string"},"containerBg":{"type":"string"},"containerBorder":{"type":"object","default":{"color":"#72aee6","style":"solid","width":"2px"}},"containerBorderRadius":{"type":"number","default":0},"color":{"type":"string","default":"#00ff00"},"reviewHeading":{"type":"string","default":"WD 1TB Portable Harddisk Solid State Drive (SSD)"},"photo":{"type":"object"},"photoBorder":{"type":"object","default":{"color":"#ccc","style":"solid","width":"2px"}},"featureList":{"type":"array","default":[{"feature":"Feature One"},{"feature":"Feature Two"},{"feature":"Feature Three"},{"feature":"Feature Four"}]},"productRating":{"type":"number","default":4},"reviewRatingNumber":{"type":"string","default":"43120 Reviews"},"productPrice":{"type":"string","default":"$78.09"},"buttonLabel":{"type":"string","default":"Buy on Amazon"},"imageHeight":{"type":"number","default":215},"imageWidth":{"type":"number","default":170},"starRatingColor":{"type":"string","default":"#ff9900"},"ReviewTextFontSize":{"type":"number"},"reviewTextColor":{"type":"string","default":"#333333"},"headingFontSize":{"type":"number","default":20},"headingFontColor":{"type":"string","default":"#256AAF"},"pricingFontSize":{"type":"number","default":16},"pricingColor":{"type":"string","default":"#333333"},"featuresFontSize":{"type":"number","default":14},"featuresColor":{"type":"string","default":"#333333"},"buttonUrl":{"type":"string"},"buttonBackground":{"type":"string"},"buttonFontColor":{"type":"string"},"buttonFontSize":{"type":"number"},"buttonBorder":{"type":"object","default":{"color":"#ccc","style":"solid","width":"2px"}}},"textdomain":"awesome-amazon-block","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
+module.exports = JSON.parse('{"apiVersion":2,"name":"aab/amz-product-review","version":"0.1.0","title":"Amz Product Review","category":"aab","description":"Amazon Product Review Block","supports":{"html":false,"anchor":false,"customClassName":false},"attributes":{"id":{"type":"string"},"containerBg":{"type":"string"},"containerBorder":{"type":"object","default":{"color":"#72aee6","style":"solid","width":"2px"}},"containerBorderRadius":{"type":"number","default":0},"color":{"type":"string","default":"#00ff00"},"reviewHeading":{"type":"string","default":"WD 1TB Portable Harddisk Solid State Drive (SSD)"},"photo":{"type":"object"},"photoBorder":{"type":"object","default":{"color":"#ccc","style":"solid","width":"2px"}},"featureList":{"type":"array","default":[{"feature":"Feature One"},{"feature":"Feature Two"},{"feature":"Feature Three"},{"feature":"Feature Four"}]},"productRating":{"type":"number","default":4},"reviewRatingNumber":{"type":"string","default":"43120 Reviews"},"productPrice":{"type":"string","default":"$78.09"},"buttonLabel":{"type":"string","default":"Buy on Amazon"},"imageHeight":{"type":"number","default":215},"imageWidth":{"type":"number","default":170},"starRatingColor":{"type":"string","default":"#ff9900"},"ReviewTextFontSize":{"type":"number"},"reviewTextColor":{"type":"string","default":"#333333"},"headingFontSize":{"type":"number","default":20},"headingFontColor":{"type":"string","default":"#256AAF"},"pricingFontSize":{"type":"number","default":16},"pricingColor":{"type":"string","default":"#333333"},"featuresFontSize":{"type":"number","default":14},"featuresColor":{"type":"string","default":"#333333"},"buttonUrl":{"type":"string"},"buttonBackground":{"type":"string"},"buttonFontColor":{"type":"string"},"buttonHoverBackground":{"type":"string"},"buttonHoverFontColor":{"type":"string"},"buttonFontSize":{"type":"number"},"buttonBorder":{"type":"object","default":{"color":"#ccc","style":"solid","width":"2px"}}},"textdomain":"awesome-amazon-block","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
 
 /***/ })
 

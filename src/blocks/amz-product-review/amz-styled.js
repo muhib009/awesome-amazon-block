@@ -49,6 +49,11 @@ const AmzStyles = styled.div`
 		${(props) =>
 			`border: ${props.buttonBorder.width} ${props.buttonBorder.style} ${props.buttonBorder.color}!important;`}
 	}
+
+	.amazon-button:hover {
+		background: ${(props) => props.buttonHoverBackground}!important;
+		color: ${(props) => props.buttonHoverFontColor}!important;
+	}
 `;
 
 export default AmzStyles;

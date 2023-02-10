@@ -133,6 +133,12 @@
 		"buttonFontColor": {
 			"type": "string"
 		},
+		"buttonHoverBackground": {
+			"type": "string"
+		},
+		"buttonHoverFontColor": {
+			"type": "string"
+		},
 		"buttonFontSize": {
 			"type": "number"
 		},

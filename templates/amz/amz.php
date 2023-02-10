@@ -39,7 +39,7 @@ function amz_frontend_styles( $attributes ){
     $css .= "}";
         
     $css .= ".rating-count p {";
-        $css .= "color:{$attributes['reviewTextColor']};";
+        $css .= "color:{$attributes['reviewTextColor']}!important;";
     $css .= "}";
         
     $css .= ".review-text h3 {";
@@ -57,12 +57,16 @@ function amz_frontend_styles( $attributes ){
     $css .= "}";
 
     $css .= ".amazon-button {";
-        $css .= "background:{$attributes['buttonBackground']};";
+        $css .= "background:{$attributes['buttonBackground']}!important;";
         $css .= "color:{$attributes['buttonFontColor']};";
         $css .= "font-size:{$attributes['buttonFontSize']}px;";
+        $css .= "border:{$attributes['buttonBorder']['width']} {$attributes['buttonBorder']['style']} {$attributes['buttonBorder']['color']}!important;";
     $css .= "}";
 
-  
+    $css .= ".amazon-button:hover {";
+        $css .= "background:{$attributes['buttonHoverBackground']}!important;";
+        $css .= "color:{$attributes['buttonHoverFontColor']}!important;";
+    $css .= "}";
 
    
    
