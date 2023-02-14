@@ -24,12 +24,16 @@ function amz_frontend_styles( $attributes ){
         $css .= "}";
     }
 
-    if(!empty($attributes['imageHeight'] !== 0)){
+    $image_height = !empty($attributes['imageHeight']) ? $attributes['imageHeight'] : '';
+    $image_width = !empty($attributes['imageWidth']) ? $attributes['imageWidth'] : '';
+    $image_border = !empty($attributes['photoBorder']) ? $attributes['photoBorder'] : '';
+
+    if(!empty($image_height !== 0)){
         $css .= ".review-image img {";
-            $css .= "height:{$attributes['imageHeight']}px!important;";
-            $css .= "width:{$attributes['imageWidth']}px!important;";
+            $css .= "height:{$image_height}px!important;";
+            $css .= "width:{$image_width}px!important;";
             if(!empty($attributes['photoBorder']['width'] !== "0px")){
-            $css .= "border:{$attributes['photoBorder']['width']} {$attributes['photoBorder']['style']} {$attributes['photoBorder']['color']};";
+            $css .= "border:{$image_border['width']} {$image_border['style']} {$image_border['color']};";
             }
             $css .= "}";
     }
@@ -38,8 +42,10 @@ function amz_frontend_styles( $attributes ){
         $css .= "color:{$attributes['starRatingColor']};";
     $css .= "}";
         
+    $reviewFontSize = !empty($attributes['ReviewTextFontSize']) ? $attributes['ReviewTextFontSize'] : '';
     $css .= ".rating-count p {";
         $css .= "color:{$attributes['reviewTextColor']}!important;";
+        $css .= "font-size:{$reviewFontSize}px;";
     $css .= "}";
         
     $css .= ".review-text h3 {";
@@ -56,16 +62,25 @@ function amz_frontend_styles( $attributes ){
         $css .= "font-size:{$attributes['pricingFontSize']}px;";
     $css .= "}";
 
+    $button_background = !empty($attributes['buttonBackground']) ? $attributes['buttonBackground'] : '';
+    $button_font_color = !empty($attributes['buttonFontColor']) ? $attributes['buttonFontColor'] : '';
+    $button_font_size = !empty($attributes['buttonFontSize']) ? $attributes['buttonFontSize'] : '';
+    $button_border = !empty($attributes['buttonBorder']) ? $attributes['buttonBorder'] : '';
+
     $css .= ".amazon-button {";
-        $css .= "background:{$attributes['buttonBackground']}!important;";
-        $css .= "color:{$attributes['buttonFontColor']};";
-        $css .= "font-size:{$attributes['buttonFontSize']}px;";
-        $css .= "border:{$attributes['buttonBorder']['width']} {$attributes['buttonBorder']['style']} {$attributes['buttonBorder']['color']}!important;";
+        $css .= "background:{$button_background}!important;";
+        $css .= "color:{$button_font_color};";
+        $css .= "font-size:{$button_font_size}px;";
+        $css .= "border:{$button_border['width']} {$button_border['style']} {$button_border['color']}!important;";
     $css .= "}";
 
+    $button_hover_background = !empty($attributes['buttonHoverBackground']) ? $attributes['buttonHoverBackground'] : '';
+    $button_hover_font_color = !empty($attributes['buttonHoverFontColor']) ? $attributes['buttonHoverFontColor'] : '';
+
+
     $css .= ".amazon-button:hover {";
-        $css .= "background:{$attributes['buttonHoverBackground']}!important;";
-        $css .= "color:{$attributes['buttonHoverFontColor']}!important;";
+        $css .= "background:{$button_hover_background}!important;";
+        $css .= "color:{$button_hover_font_color}!important;";
     $css .= "}";
 
    

@@ -10,14 +10,14 @@
 }
 .wp-block-aab-amz-product-review .amazon-review-block {
   display: grid;
-  grid-template-columns: 1fr 4fr;
+  grid-template-columns: 2fr 3fr;
+  gap: 20px;
 }
 .wp-block-aab-amz-product-review .amazon-review-block .review-image {
   height: auto;
   width: auto;
 }
 .wp-block-aab-amz-product-review .amazon-review-block .review-image img {
-  height: 215px;
   width: auto;
   -o-object-fit: cover;
      object-fit: cover;

@@ -25,6 +25,7 @@ const AmzStyles = styled.div`
 
 	.rating-count p {
 		color: ${(props) => props.reviewTextColor};
+		font-size: ${(props) => props.ReviewTextFontSize}px;
 	}
 
 	.review-text h3 {

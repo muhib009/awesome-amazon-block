@@ -772,6 +772,7 @@ const AmzStyles = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div`
 
 	.rating-count p {
 		color: ${props => props.reviewTextColor};
+		font-size: ${props => props.ReviewTextFontSize}px;
 	}
 
 	.review-text h3 {
@@ -841,7 +842,13 @@ __webpack_require__.r(__webpack_exports__);
 
 const {
   Fragment
-} = wp.element; // editor style
+} = wp.element;
+const ALLOWED_BLOCKS = ['core/list'];
+const MY_TEMPLATE = [['core/list', {
+  title: 'List Goes Here',
+  name: 'core/list-item',
+  ancestor: ['core/list']
+}]]; // editor style
 
 
 
@@ -858,7 +865,6 @@ function Edit(_ref) {
     reviewHeading,
     photo,
     photoBorder,
-    featureList,
     productRating,
     reviewRatingNumber,
     productPrice,
@@ -958,7 +964,7 @@ function Edit(_ref) {
         max: 300,
         step: 1,
         allowReset: true,
-        resetFallbackValue: 215
+        resetFallbackValue: ''
       }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.RangeControl, {
         label: "Image Width",
         value: imageWidth,
@@ -969,7 +975,7 @@ function Edit(_ref) {
         max: 300,
         step: 1,
         allowReset: true,
-        resetFallbackValue: 170
+        resetFallbackValue: ''
       }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.__experimentalBorderControl, {
         label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Image Border', 'awesome-amazon-block'),
         onChange: value => setAttributes({
@@ -1032,52 +1038,7 @@ function Edit(_ref) {
       })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, {
         title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Feature Settings', 'awesome-amazon-block'),
         initialOpen: false
-      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
-        className: "new-feature-list"
-      }, featureList && featureList.map((item, index) => {
-        return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
-          className: "all-features",
-          key: index
-        }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
-          className: "features-list"
-        }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.TextControl, {
-          value: item.feature,
-          onChange: value => {
-            const newTitles = [...featureList];
-            newTitles[index].feature = value;
-            setAttributes({
-              featureList: newTitles
-            });
-          }
-        })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
-          className: "feature-remove-button"
-        }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("button", {
-          onClick: () => setAttributes({
-            featureList: featureList.filter((item, i) => i !== index)
-          }),
-          className: "feature-remove"
-        }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("svg", {
-          clipRule: "evenodd",
-          fillRule: "evenodd",
-          strokeLinejoin: "round",
-          strokeMiterlimit: "2",
-          viewBox: "0 0 24 24"
-        }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("path", {
-          d: "m21 3.998c0-.478-.379-1-1-1h-16c-.62 0-1 .519-1 1v16c0 .621.52 1 1 1h16c.478 0 1-.379 1-1zm-16.5.5h15v15h-15zm7.491 6.432 2.717-2.718c.146-.146.338-.219.53-.219.404 0 .751.325.751.75 0 .193-.073.384-.22.531l-2.717 2.717 2.728 2.728c.147.147.22.339.22.531 0 .427-.349.75-.75.75-.192 0-.385-.073-.531-.219l-2.728-2.728-2.728 2.728c-.147.146-.339.219-.531.219-.401 0-.75-.323-.75-.75 0-.192.073-.384.22-.531l2.728-2.728-2.722-2.722c-.146-.147-.219-.338-.219-.531 0-.425.346-.749.75-.749.192 0 .384.073.53.219z",
-          fillRule: "nonzero"
-        })))));
-      }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
-        className: "new-feature-button"
-      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("button", {
-        onClick: () => setAttributes({
-          featureList: [...featureList, {
-            id: featureList.length + 1,
-            feature: 'Lorem Ipsum Feature'
-          }]
-        })
-      }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Add A Feature', 'awesome-amazon-block')))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
-        className: "agb-label-spacing"
-      }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_utilities_components_colorcontrol_colorcontrol__WEBPACK_IMPORTED_MODULE_9__["default"], {
+      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_utilities_components_colorcontrol_colorcontrol__WEBPACK_IMPORTED_MODULE_9__["default"], {
         label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Features Font Color', 'awesome-amazon-block'),
         colorValue: featuresColor,
         colorName: "featuresColor",
@@ -1173,6 +1134,7 @@ function Edit(_ref) {
     photoBorder: photoBorder,
     starRatingColor: starRatingColor,
     reviewTextColor: reviewTextColor,
+    ReviewTextFontSize: ReviewTextFontSize,
     headingFontColor: headingFontColor,
     headingFontSize: headingFontSize,
     featuresColor: featuresColor,
@@ -1234,10 +1196,9 @@ function Edit(_ref) {
     })
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
     className: "product-features"
-  }, featureList && featureList.map((feature, index) => {
-    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("li", {
-      key: index
-    }, feature.feature);
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.InnerBlocks, {
+    allowedBlocks: ALLOWED_BLOCKS,
+    template: MY_TEMPLATE
   })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
     className: "aab-pricing-section"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
@@ -1368,11 +1329,7 @@ function save(_ref) {
     tagName: "h3"
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "product-features"
-  }, featureList && featureList.map((feature, index) => {
-    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", {
-      key: index
-    }, feature.feature);
-  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InnerBlocks.Content, null)), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "aab-pricing-section"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "abb-product-price"
@@ -3667,7 +3624,7 @@ function _extends() {
 /***/ (function(module) {
 
 "use strict";
-module.exports = JSON.parse('{"apiVersion":2,"name":"aab/amz-product-review","version":"0.1.0","title":"Amz Product Review","category":"aab","description":"Amazon Product Review Block","supports":{"html":false,"anchor":false,"customClassName":false},"attributes":{"id":{"type":"string"},"containerBg":{"type":"string"},"containerBorder":{"type":"object","default":{"color":"#72aee6","style":"solid","width":"2px"}},"containerBorderRadius":{"type":"number","default":0},"color":{"type":"string","default":"#00ff00"},"reviewHeading":{"type":"string","default":"WD 1TB Portable Harddisk Solid State Drive (SSD)"},"photo":{"type":"object"},"photoBorder":{"type":"object","default":{"color":"#ccc","style":"solid","width":"2px"}},"featureList":{"type":"array","default":[{"feature":"Feature One"},{"feature":"Feature Two"},{"feature":"Feature Three"},{"feature":"Feature Four"}]},"productRating":{"type":"number","default":4},"reviewRatingNumber":{"type":"string","default":"43120 Reviews"},"productPrice":{"type":"string","default":"$78.09"},"buttonLabel":{"type":"string","default":"Buy on Amazon"},"imageHeight":{"type":"number","default":215},"imageWidth":{"type":"number","default":170},"starRatingColor":{"type":"string","default":"#ff9900"},"ReviewTextFontSize":{"type":"number"},"reviewTextColor":{"type":"string","default":"#333333"},"headingFontSize":{"type":"number","default":20},"headingFontColor":{"type":"string","default":"#256AAF"},"pricingFontSize":{"type":"number","default":16},"pricingColor":{"type":"string","default":"#333333"},"featuresFontSize":{"type":"number","default":14},"featuresColor":{"type":"string","default":"#333333"},"buttonUrl":{"type":"string"},"buttonBackground":{"type":"string"},"buttonFontColor":{"type":"string"},"buttonHoverBackground":{"type":"string"},"buttonHoverFontColor":{"type":"string"},"buttonFontSize":{"type":"number"},"buttonBorder":{"type":"object","default":{"color":"#ccc","style":"solid","width":"2px"}}},"textdomain":"awesome-amazon-block","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
+module.exports = JSON.parse('{"apiVersion":2,"name":"aab/amz-product-review","version":"0.1.0","title":"Amz Product Review","category":"aab","description":"Amazon Product Review Block","supports":{"html":false,"anchor":false,"customClassName":false},"attributes":{"id":{"type":"string"},"containerBg":{"type":"string"},"containerBorder":{"type":"object","default":{"color":"#ccc","style":"solid","width":"1px"}},"containerBorderRadius":{"type":"number","default":0},"color":{"type":"string","default":"#00ff00"},"reviewHeading":{"type":"string","default":"WD 1TB Portable Harddisk Solid State Drive (SSD)"},"photo":{"type":"object"},"photoBorder":{"type":"object","default":{"color":"#ccc","style":"solid","width":"2px"}},"featureList":{"type":"string"},"productRating":{"type":"number","default":4},"reviewRatingNumber":{"type":"string","default":"43120 Reviews"},"productPrice":{"type":"string","default":"$78.09"},"buttonLabel":{"type":"string","default":"Buy on Amazon"},"imageHeight":{"type":"number"},"imageWidth":{"type":"number"},"starRatingColor":{"type":"string","default":"#ff9900"},"ReviewTextFontSize":{"type":"number"},"reviewTextColor":{"type":"string","default":"#333333"},"headingFontSize":{"type":"number","default":20},"headingFontColor":{"type":"string","default":"#256AAF"},"pricingFontSize":{"type":"number","default":16},"pricingColor":{"type":"string","default":"#333333"},"featuresFontSize":{"type":"number","default":18},"featuresColor":{"type":"string","default":"#333333"},"buttonUrl":{"type":"string","default":"#"},"buttonBackground":{"type":"string"},"buttonFontColor":{"type":"string","default":"black"},"buttonHoverBackground":{"type":"string"},"buttonHoverFontColor":{"type":"string"},"buttonFontSize":{"type":"number"},"buttonBorder":{"type":"object","default":{"color":"#ccc","style":"solid","width":"1px"}}},"textdomain":"awesome-amazon-block","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
 
 /***/ })
 

@@ -20,9 +20,9 @@
 		"containerBorder": {
 			"type": "object",
 			"default": {
-				"color": "#72aee6",
+				"color": "#ccc",
 				"style": "solid",
-				"width": "2px"
+				"width": "1px"
 			}
 		},
 		"containerBorderRadius": {
@@ -49,21 +49,7 @@
 			}
 		},
 		"featureList": {
-			"type": "array",
-			"default": [
-				{
-					"feature": "Feature One"
-				},
-				{
-					"feature": "Feature Two"
-				},
-				{
-					"feature": "Feature Three"
-				},
-				{
-					"feature": "Feature Four"
-				}
-			]
+			"type": "string"
 		},
 		"productRating": {
 			"type": "number",
@@ -82,12 +68,10 @@
 			"default": "Buy on Amazon"
 		},
 		"imageHeight": {
-			"type": "number",
-			"default": 215
+			"type": "number"
 		},
 		"imageWidth": {
-			"type": "number",
-			"default": 170
+			"type": "number"
 		},
 		"starRatingColor": {
 			"type": "string",
@@ -118,20 +102,22 @@
 		},
 		"featuresFontSize": {
 			"type": "number",
-			"default": 14
+			"default": 18
 		},
 		"featuresColor": {
 			"type": "string",
 			"default": "#333333"
 		},
 		"buttonUrl": {
-			"type": "string"
+			"type": "string",
+			"default": "#"
 		},
 		"buttonBackground": {
 			"type": "string"
 		},
 		"buttonFontColor": {
-			"type": "string"
+			"type": "string",
+			"default": "black"
 		},
 		"buttonHoverBackground": {
 			"type": "string"
@@ -147,7 +133,7 @@
 			"default": {
 				"color": "#ccc",
 				"style": "solid",
-				"width": "2px"
+				"width": "1px"
 			}
 		}
 	},

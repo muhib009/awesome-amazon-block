@@ -1,5 +1,5 @@
 //import { __ } from '@wordpress/i18n';
-import { useBlockProps, RichText } from '@wordpress/block-editor';
+import { useBlockProps, RichText, InnerBlocks } from '@wordpress/block-editor';
 
 export default function save({ attributes }) {
 	const {
@@ -51,10 +51,7 @@ export default function save({ attributes }) {
 				<div className="review-text">
 					<RichText.Content value={reviewHeading} tagName="h3" />
 					<div className="product-features">
-						{featureList &&
-							featureList.map((feature, index) => {
-								return <li key={index}>{feature.feature}</li>;
-							})}
+						<InnerBlocks.Content />
 					</div>
 					<div className="aab-pricing-section">
 						<div className="abb-product-price">
@@ -66,7 +63,6 @@ export default function save({ attributes }) {
 									<RichText.Content value={buttonLabel} />
 								</a>
 							)}
-							
 						</div>
 					</div>
 				</div>
